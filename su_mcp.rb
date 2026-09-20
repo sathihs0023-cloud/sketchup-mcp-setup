@@ -1,15 +1,16 @@
-require 'sketchup.rb'
-require 'extensions.rb'
-require 'json'
-require 'socket'
+require 'sketchup'
+require 'extensions'
 
 module SU_MCP
   unless file_loaded?(__FILE__)
-    ex = SketchupExtension.new('Sketchup MCP', 'su_mcp/main')
-    ex.description = 'MCP server for Sketchup that allows AI agents to control and manipulate scenes'
-    ex.version     = '0.1.0'
-    ex.copyright   = '2024'
-    Sketchup.register_extension(ex, true)
+    ext = SketchupExtension.new('Sketchup MCP Server', 'su_mcp/main')
+    ext.description = 'Model Context Protocol server for Sketchup'
+    ext.version     = '1.5.0'
+    ext.copyright   = '2024'
+    ext.creator     = 'MCP Team'
+    
+    Sketchup.register_extension(ext, true)
+    
     file_loaded(__FILE__)
   end
 end 
